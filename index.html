@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/general.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Lab 12</title>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="count-form">
+        <h1>Delivering price?</h1>
+        <h2>Let's calculate</h2>
+        <div id="result-block">
+          <h3>Delivering price will be...</h3>
+          <p id="result__price">UAH</p>
+        </div>
+        <form action="">
+          <div class="form-item form__route">
+            <label for="from-route">Route</label>
+            <div>
+              <input
+                autocomplete="off"
+                type="text"
+                name="from"
+                id="from-route"
+                placeholder="From"
+              />
+              <input
+                autocomplete="off"
+                type="text"
+                name="to"
+                id="to-route"
+                placeholder="To"
+              />
+            </div>
+            <br />
+          </div>
+          <div class="form-item form__type">
+            <label for="type-select">Order type</label>
+            <select name="type" id="type-select">
+              <option value="package">Package</option>
+              <option value="cargo">Cargo</option>
+              <option value="documents">Documents</option>
+              <option value="tires and wheels">Tires and wheels</option>
+              <option value="pallets">Pallets</option>
+            </select>
+
+            <br />
+          </div>
+          <div id="place" class="form-item form__place">
+            <p>Place</p>
+            <input
+              autocomplete="off"
+              type="number"
+              min="1"
+              name="count"
+              id="count-field"
+              placeholder="Count"
+            />
+            <input
+              autocomplete="off"
+              type="text"
+              name="price"
+              id="price-field"
+              placeholder="Price"
+            />
+            <span class="counts">uah</span>
+            <input
+              autocomplete="off"
+              type="text"
+              name="weight"
+              id="weight-field"
+              placeholder="Weight"
+            /><span class="counts">kg</span>
+            <input
+              autocomplete="off"
+              type="text"
+              name="height"
+              id="height-field"
+              placeholder="Height"
+            />
+            <input
+              autocomplete="off"
+              type="text"
+              name="width"
+              id="width-field"
+              placeholder="Width"
+            />
+            <input
+              autocomplete="off"
+              type="text"
+              name="length"
+              id="length-field"
+              placeholder="Length"
+            /><span class="counts">cm</span>
+
+            <br />
+          </div>
+          <div class="form-item form__check">
+            Packaging
+            <input
+              autocomplete="off"
+              class="pack-box tick"
+              type="checkbox"
+              name="packaging"
+              id="packaging-box"
+            />
+            <div id="package-block">
+              <select
+                class="package-item"
+                name="package-type"
+                id="package-type"
+              >
+                <option value="1">Box (1kg)</option>
+                <option value="5">Box (5kg)</option>
+                <option value="10">Box (10kg)</option>
+                <option value="15">Box (15kg)</option>
+              </select>
+              <input
+                autocomplete="off"
+                class="package-item package-field"
+                type="number"
+                name="amount"
+                id="package-amount"
+                placeholder="Count"
+                min="1"
+              />
+              <span class="package-item" id="package-price">Price</span>
+            </div>
+
+            <br />
+            Rise to the floor
+            <input
+              autocomplete="off"
+              class="box-field"
+              type="text"
+              name="floor"
+              id="floor-field"
+              placeholder="Floor"
+            />
+            Elevator
+            <input
+              autocomplete="off"
+              class="tick"
+              type="checkbox"
+              name="elevator"
+              id="elevator-box"
+            /><br />
+            Return shipping
+            <input
+              autocomplete="off"
+              class="return-box tick"
+              type="checkbox"
+              name="return"
+              id="return-box"
+            />
+            <div id="return-block">
+              <span class="return-text">Return type</span>
+              <select name="return-type" id="return-type">
+                <option value="money">Money</option>
+                <option value="documents">Documents</option>
+              </select>
+            </div>
+            <br />
+          </div>
+          <div class="form-buttons">
+            <input
+              id="calc-btn"
+              class="submit-btn form__btn"
+              type="submit"
+              value="Сalculate"
+            />
+            <input class="reset-btn form__btn" type="reset" value="Reset" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+  </body>
+</html>
