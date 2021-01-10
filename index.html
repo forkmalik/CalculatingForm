@@ -16,7 +16,7 @@
           <h3>Delivering price will be...</h3>
           <p id="result__price">UAH</p>
         </div>
-        <form action="">
+        <form action="" id="calc">
           <div class="form-item form__route">
             <label for="from-route">Route</label>
             <div>
@@ -26,6 +26,7 @@
                 name="from"
                 id="from-route"
                 placeholder="From"
+                class="validate"
               />
               <input
                 autocomplete="off"
@@ -33,6 +34,7 @@
                 name="to"
                 id="to-route"
                 placeholder="To"
+                class="validate"
               />
             </div>
             <br />
@@ -58,12 +60,14 @@
               name="count"
               id="count-field"
               placeholder="Count"
+              class="validate"
             />
             <input
               autocomplete="off"
               type="text"
               name="price"
               id="price-field"
+              class="validate"
               placeholder="Price"
             />
             <span class="counts">uah</span>
@@ -72,6 +76,7 @@
               type="text"
               name="weight"
               id="weight-field"
+              class="validate"
               placeholder="Weight"
             /><span class="counts">kg</span>
             <input
@@ -79,6 +84,7 @@
               type="text"
               name="height"
               id="height-field"
+              class="validate"
               placeholder="Height"
             />
             <input
@@ -87,6 +93,7 @@
               name="width"
               id="width-field"
               placeholder="Width"
+              class="validate"
             />
             <input
               autocomplete="off"
@@ -94,6 +101,7 @@
               name="length"
               id="length-field"
               placeholder="Length"
+              class="validate"
             /><span class="counts">cm</span>
 
             <br />
