@@ -66,16 +66,16 @@ var calcDeliver = (fields) => {
     let boxCount = document.getElementById("package-amount").value;
     switch (boxSize) {
       case '1':
-        result = result + boxCount * 8;
+        result += boxCount * 8;
         break;
       case '5':
-        result = result + boxCount * 14;
+        result += boxCount * 14;
         break;
       case '10':
-        result = result + boxCount * 19;
+        result += boxCount * 19;
         break;
       case '15':
-        result = result + boxCount * 22;
+        result += boxCount * 22;
         break;
       default:
         result = result;
@@ -84,9 +84,9 @@ var calcDeliver = (fields) => {
   if (floorInpt.value) {
     let elevator = document.getElementById("elevator-box");
     if (elevator.checked) {
-      result = result + 20;
+      result += 20;
     } else {
-      result = result + floorInpt.value * 5;
+      result += floorInpt.value * 5;
     }
   }
 
@@ -95,10 +95,10 @@ var calcDeliver = (fields) => {
     let returnType = document.getElementById('return-type');
     switch (returnType.value) {
       case "money":
-        result = result + 3;
+        result += 3;
         break;
       case "documents":
-        result = result + 5;
+        result += 5;
       default:
         result = result;
     }
