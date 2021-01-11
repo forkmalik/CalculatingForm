@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const returnTick = document.getElementById("return-box");
   const parent = document.getElementById("place");
   const placeInputs = parent.getElementsByTagName("input");
+  const floorInpt = document.getElementById("floor-field");
   let isValid = false;
 
   const regExpString = /^[A-Z]{1}[a-z]{1,}$|^[A-Z]{1}[a-z]{1,}\-[A-Z]{1}[a-z]{1,}$/;
@@ -45,24 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const matchText = (elem) => {
     if (!regExpString.test(elem.value) && elem.value !== "") {
       elem.style.borderColor = "Red";
+      isValid = false;
     } else {
       elem.style.borderColor = "Initial";
+      isValid = true;
     }
   };
 
   const matchDigits = (elem) => {
     if (!regExpDigits.test(elem.value) && elem.value !== "") {
       elem.style.borderColor = "Red";
+      isValid = false;
     } else {
       elem.style.borderColor = "Initial";
+      isValid = true;
     }
   };
 
   const calcDeliver = (fields) => {
-    for (i = 0; i < fields.length; i++) {
-      fields[i] = parseInt(fields[i].value, 10);
-    }
-
     let result =
       (0.05 * parseInt(fields[1].value, 10) +
         (parseInt(fields[2].value, 10) + 0.1) +
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
           result = result;
       }
     }
-    if (floorInpt.value) {
+    if (floorInpt.value !== "") {
       let elevator = document.getElementById("elevator-box");
       if (elevator.checked) {
         result += 20;
@@ -115,8 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
           result = result;
       }
     }
-    console.log(result);
-    return result;
+    return Math.round(result);
   };
 
   for (let elem of form.elements) {
@@ -134,14 +134,24 @@ document.addEventListener("DOMContentLoaded", () => {
         if (elem.value === "") {
           elem.style.borderColor = "Red";
           isValid = false;
-        } else {
-          isValid = true;
         }
       }
     }
+
+    console.log(isValid);
+
+    if (isValid) {
+      let result = calcDeliver(placeInputs);
+      let resultBlock = document.getElementById("result-block");
+      resultBlock.style.display = "Block";
+      let resultText = document.getElementById("result__price");
+      resultText.innerText = result + "UAH";
+    } else {
+      alert("Fields are empty!");
+    }
   });
 
-  packTick.addEventListener("change", (event) => {
+  packTick.addEventListener("change", () => {
     let packBlock = document.getElementById("package-block");
     if (packTick.checked) {
       packBlock.style.display = "Inline";
@@ -150,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  returnTick.addEventListener("change", (event) => {
+  returnTick.addEventListener("change", () => {
     let returnBlock = document.getElementById("return-block");
     if (returnTick.checked) {
       returnBlock.style.display = "Block";
@@ -158,12 +168,4 @@ document.addEventListener("DOMContentLoaded", () => {
       returnBlock.style.display = "None";
     }
   });
-  
-  if (isValid) {
-    let result = calcDeliver(placeInputs);
-    let resultBlock = document.getElementById("result-block");
-    resultBlock.style.display = "Block";
-    let resultText = document.getElementById("result__price");
-    resultText.innerText = result + "UAH";
-  }
 });
